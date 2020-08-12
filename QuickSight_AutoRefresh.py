@@ -12,10 +12,10 @@ for i in client.list_data_sets(AwsAccountId= <YourAWSAccount> )["DataSetSummarie
         print(i["DataSetId"])
         ID_ = i["DataSetId"]
 
-#to create unique number
-ingestionID = calendar.timegm(time.gmtime())
+
 
 while True:
+  ingestionID = calendar.timegm(time.gmtime())
   response = client.create_ingestion(
       DataSetId= ID_,
       IngestionId=str(ingestionID),
